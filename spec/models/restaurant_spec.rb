@@ -13,4 +13,7 @@ RSpec.describe Restaurant do
   it {should validate_presence_of :opening_date}
   end
 
+  describe 'index' do
+    
+  end
 end
