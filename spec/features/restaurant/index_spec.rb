@@ -21,8 +21,10 @@ RSpec.describe 'Restaurant' do
   end
 
   it 'shows all of the titles of the songs for the artist' do
-    visit "/restaurant"
+    visit "/restaurants"
+    save_and_open_page
 
-    expect(page).to have_content(@maisonmargaux.title)
-    expect(page).to have_content(@fhimas.title)
+    expect(page).to have_content(@maisonmargaux.name)
+    expect(page).to have_content(@fhimas.name)
   end
+end
