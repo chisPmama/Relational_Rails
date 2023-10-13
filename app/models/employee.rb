@@ -3,10 +3,9 @@ class Employee < ApplicationRecord
 
   validates_presence_of :name
   validates_presence_of :position 
-  validates_presence_of :active
+  validates :active, inclusion: [true, false]
   validates_presence_of :hired_date
   validates_presence_of :hourly_wage
-  validates_presence_of :salary
+  validates :salary, inclusion: [true, false]
 
-  
 end

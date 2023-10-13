@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Restaurant' do
+RSpec.describe 'Employee' do
   before :each do
     @maisonmargaux = Restaurant.create(name: 'Maison Margaux', 
                                        location: '224 N 1st St, Minneapolis, MN 55401',
@@ -20,20 +20,14 @@ RSpec.describe 'Restaurant' do
                                 opening_date: 20180928)
   end
 
-  it 'returns the names of each restaurant in the index' do
-    visit "/restaurants"
+  it 'can go to a specific employee page by id and return their attributes' do
+    visit "/employees/#{@eli.id}"
+    expect(page).to have_content(@eli.name)
+    expect(page).to have_content(@eli.position)
+    expect(page).to have_content(@eli.active)
+    expect(page).to have_content(@eli.hired_date)
+    expect(page).to have_content("$0.00")
+    expect(page).to have_content(@eli.salary)
 
-    expect(page).to have_content(@maisonmargaux.name)
-    expect(page).to have_content(@fhimas.name)
   end
-
-  # it 'returns the names of each restaurant in the order of which created' do
-  #   visit "/restaurants"
-  #   # save_and_open_page
-
-  #   expect(page).to have_content(@maisonmargaux.name)
-  #   expect(page).to have_content(@fhimas.name)
-  #   expect(page).to have_content(@maisonmargaux.created_at)
-  #   expect(page).to have_content(@fhimas.created_at)
-  # end
 end

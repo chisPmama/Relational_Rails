@@ -8,10 +8,12 @@ RSpec.describe Employee do
   describe 'validations' do
   it {should validate_presence_of :name}
   it {should validate_presence_of :position}
-  it {should validate_presence_of :active}
+  it { should allow_value(true).for(:active) }
+  it { should allow_value(false).for(:active) }
   it {should validate_presence_of :hired_date}
   it {should validate_presence_of :hourly_wage}
-  it {should validate_presence_of :salary}
+  it { should allow_value(true).for(:salary) }
+  it { should allow_value(false).for(:salary) }
   end
 
   

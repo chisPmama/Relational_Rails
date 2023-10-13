@@ -1,0 +1,7 @@
+<h1><%= @employee.name %></h1>
+<p>ID: <%= @employee.id%> </p>
+<p>Position: <%= @employee.position%> </p>
+<p>Active: <%= @employee.active%> </p>
+<p>When Hired: <%= @employee.hired_date%> </p>
+<p>Hourly Wage: <%=number_to_currency(@employee.hourly_wage, precision:2)%> </p>
+<p>Salary Employee: <%= @employee.salary%> </p>

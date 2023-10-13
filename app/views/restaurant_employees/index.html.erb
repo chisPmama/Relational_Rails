@@ -1,0 +1,12 @@
+<h1>Restaurant: <%= @restaurant.name %></h1>
+<h3>Employees List:</h1>
+<% @restaurant_employees.each do |e| %>
+<h4><%= e.id %>. <%= e.name %></h4>
+<p>Position: <%= e.position%> </p>
+<p>Active: <%= e.active%> </p>
+<p>When Hired: <%= e.hired_date%> </p>
+<p>Hourly Wage: <%= number_to_currency(e.hourly_wage, precision:2)%> </p>
+<p>Salary Employee: <%= e.salary%> </p>
+<p>-----------------------------------------------------------</p>
+<br>
+<% end %>

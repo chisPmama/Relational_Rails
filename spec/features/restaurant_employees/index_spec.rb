@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Restaurant' do
+RSpec.describe 'Restaurant_Employees' do
   before :each do
     @maisonmargaux = Restaurant.create(name: 'Maison Margaux', 
                                        location: '224 N 1st St, Minneapolis, MN 55401',
@@ -18,22 +18,30 @@ RSpec.describe 'Restaurant' do
                                 offers_insurance: true,
                                 max_employee_quantity: 12,
                                 opening_date: 20180928)
+    @aldo = @fhimas.employees.create(name: "Aldo Hidalgo", position: "FOH General Manager", active: true, hired_date: "20180928", hourly_wage: 0, salary: true)
+
   end
 
-  it 'returns the names of each restaurant in the index' do
-    visit "/restaurants"
+  it 'can go to a specific restaurant and return its employees and attributes' do
+    visit "/restaurants/#{@maisonmargaux.id}/employees"
+    # save_and_open_page
 
     expect(page).to have_content(@maisonmargaux.name)
-    expect(page).to have_content(@fhimas.name)
+    expect(page).to have_content(@eli.name)
+    expect(page).to have_content(@eli.position)
+    expect(page).to have_content(@eli.active)
+    expect(page).to have_content(@eli.hired_date)
+    expect(page).to have_content("$0.00")
+    expect(page).to have_content(@eli.salary)
+    expect(page).to have_content(@david.name)
+    expect(page).to have_content(@anthea.name)
+    expect(page).to have_content(@bjorn.name)
+    expect(page).to have_content(@margo.name)
   end
 
-  # it 'returns the names of each restaurant in the order of which created' do
-  #   visit "/restaurants"
-  #   # save_and_open_page
-
-  #   expect(page).to have_content(@maisonmargaux.name)
-  #   expect(page).to have_content(@fhimas.name)
-  #   expect(page).to have_content(@maisonmargaux.created_at)
-  #   expect(page).to have_content(@fhimas.created_at)
-  # end
+  it 'does not include Fhimas employees' do
+    visit "/restaurants/#{@maisonmargaux.id}/employees"
+    save_and_open_page
+    expect(page).to_not have_content(@aldo.name)
+  end
 end

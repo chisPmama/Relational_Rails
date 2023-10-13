@@ -20,20 +20,10 @@ RSpec.describe 'Restaurant' do
                                 opening_date: 20180928)
   end
 
-  it 'returns the names of each restaurant in the index' do
-    visit "/restaurants"
+  it 'shows all of the employees in the Employees table and returns their attributes' do
+    visit "/employees"
+    # save_and_open_page
 
-    expect(page).to have_content(@maisonmargaux.name)
-    expect(page).to have_content(@fhimas.name)
+    expect(page).to have_content(@employees)
   end
-
-  # it 'returns the names of each restaurant in the order of which created' do
-  #   visit "/restaurants"
-  #   # save_and_open_page
-
-  #   expect(page).to have_content(@maisonmargaux.name)
-  #   expect(page).to have_content(@fhimas.name)
-  #   expect(page).to have_content(@maisonmargaux.created_at)
-  #   expect(page).to have_content(@fhimas.created_at)
-  # end
 end
