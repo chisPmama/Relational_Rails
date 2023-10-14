@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'Restaurant' do
+RSpec.describe "the Restaurant creation" do
   before :each do
     @maisonmargaux = Restaurant.create!(name: 'Maison Margaux', 
                                        location: '224 N 1st St, Minneapolis, MN 55401',
@@ -25,42 +25,41 @@ RSpec.describe 'Restaurant' do
                                     max_employee_quantity: 5,
                                     opening_date: 20230624)
   end
-
-  it 'returns the names of each restaurant in the index' do
+  
+  it "links to the new page from the restaurants index" do
     visit "/restaurants"
 
-    expect(page).to have_content(@maisonmargaux.name)
-    expect(page).to have_content(@fhimas.name)
-    expect(page).to have_content(@motherdough.name)
+    click_link("New Restaurant")
+    expect(current_path).to eq("/restaurants/new")
   end
 
-  it 'returns the names of each restaurant in the order of which created' do
+  it "can create a new Restaurant" do
+    visit "/restaurants/new"
+    fill_in "Name", with: "Artisans and Spice"
+    fill_in "Location", with: "225 south 6th Street, Minneapolis MN, 55402"
+    fill_in "Offers Insurance", with: "true"
+    fill_in "Max Employee Quantity", with: "4"
+    fill_in "Opening Date", with: "20221208"
+
+    click_button "Create Restaurant"
+    expect(current_path).to eq("/restaurants")
+    expect(page).to have_content("Artisans and Spice")
+  end
+
+ it 'contains a link that can create a new restaurant record' do
     visit "/restaurants"
+    save_and_open_page
+    expect(page).to have_content("Restaurants")
+    click_link "New Restaurant"
+    expect(current_path).to eq("/restaurants/new")
+    fill_in "Name", with: "Artisans and Spice"
+    fill_in "Location", with: "225 south 6th Street, Minneapolis MN, 55402"
+    fill_in "Offers Insurance", with: "true"
+    fill_in "Max Employee Quantity", with: "4"
+    fill_in "Opening Date", with: "20221208"
 
-    expect(@motherdough.name).to appear_before(@fhimas.name)
-    expect(@fhimas.name).to appear_before(@maisonmargaux.name)
-    expect(page).to have_content(@maisonmargaux.name)
-    expect(page).to have_content(@fhimas.name)
-    expect(page).to have_content(@motherdough.name)
-    expect(page).to have_content(@maisonmargaux.created_at)
-    expect(page).to have_content(@fhimas.created_at)
-    expect(page).to have_content(@motherdough.created_at)
+    click_button "Create Restaurant"
+    expect(current_path).to eq("/restaurants")
+    expect(page).to have_content("Artisans and Spice")
   end
-
-  # it 'contains a link that can create a new restaurant record' do
-  #   visit "/restaurants"
-  #   expect(page).to have_content("Restaurants")
-  #   click_link "New Restaurant"
-  #   expect(current_path).to eq("/restaurants/new")
-  #   fill_in "Name", with: "Artisans and Spice"
-  #   fill_in "Location", with: "225 south 6th Street, Minneapolis MN, 55402"
-  #   fill_in "Offers Insurance", with: "true"
-  #   fill_in "Max Employee Quantity", with: "4"
-  #   fill_in "Opening Date", with: "20221208"
-
-  #   click_button "Create Restaurant"
-  #   expect(current_path).to eq("/restaurants")
-  #   expect(page).to have_content("Artisans and Spice")
-  # end
-
 end

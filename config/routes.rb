@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get "/employees", to: "employees#index"
   get "/employees/:id", to: "employees#show"
   get "/restaurants/:restaurant_id/employees", to: "restaurant_employees#index"
-
+  get "/restaurants/new", to: "restaurants#new"
+  post "/restaurants", to: "restaurants#create"
 end
