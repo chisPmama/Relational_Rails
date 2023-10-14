@@ -22,3 +22,11 @@
                             offers_insurance: true,
                             max_employee_quantity: 12,
                             opening_date: 20180928)
+
+ @motherdough = Restaurant.create(name: 'Mother Dough', 
+                            location: '1st floor fireside lounge, 225 South 6th St, Minneapolis, MN 55402',
+                            offers_insurance: false,
+                            max_employee_quantity: 5,
+                            opening_date: 20230624)
+
+@aldo = @fhimas.employees.create(name: "Aldo Hidalgo", position: "FOH General Manager", active: true, hired_date: "20180928", hourly_wage: 0, salary: true)

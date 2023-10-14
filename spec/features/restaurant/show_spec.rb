@@ -18,6 +18,14 @@ RSpec.describe 'Restaurant' do
                                 offers_insurance: true,
                                 max_employee_quantity: 12,
                                 opening_date: 20180928)
+
+    @motherdough = Restaurant.create(name: 'Mother Dough', 
+                                    location: '1st floor fireside lounge, 225 South 6th St, Minneapolis, MN 55402',
+                                    offers_insurance: false,
+                                    max_employee_quantity: 5,
+                                    opening_date: 20230624)
+        
+    @aldo = @fhimas.employees.create(name: "Aldo Hidalgo", position: "FOH General Manager", active: true, hired_date: "20180928", hourly_wage: 0, salary: true)    
   end
 
   it 'can go to a restaurant page by id and return its attributes' do
@@ -29,5 +37,33 @@ RSpec.describe 'Restaurant' do
     expect(page).to have_content(@maisonmargaux.offers_insurance)
     expect(page).to have_content(@maisonmargaux.max_employee_quantity)
     expect(page).to have_content(@maisonmargaux.opening_date)
+  end
+
+  it 'returns the names of each restaurant in the order of which created' do
+    visit "/restaurants/#{@maisonmargaux.id}"
+    expect(page).to have_content(@maisonmargaux.employees.count)
+    expect(@maisonmargaux.employees.count).to eq(5)
+    visit "/restaurants/#{@fhimas.id}"
+    expect(page).to have_content(@fhimas.employees.count)
+    expect(@fhimas.employees.count).to eq(1)
+    visit "/restaurants/#{@motherdough.id}"
+    expect(page).to have_content(@motherdough.employees.count)
+    expect(@motherdough.employees.count).to eq(0)
+  end
+
+  it 'has a link that returns back to the Restaurant Index' do
+    visit "/restaurants/#{@motherdough.id}"
+    expect(page).to have_content("Mother Dough")
+    click_link "Back to Restaurant Index"
+    expect(current_path).to eq("/restaurants")
+    expect(page).to have_content("Restaurant")
+  end
+
+  it 'has a link that goes to the employees list of that restaurant' do
+    visit "/restaurants/#{@maisonmargaux.id}"
+    expect(page).to have_content("Maison Margaux")
+    click_link "Go to Employees List"
+    expect(current_path).to eq("/restaurants/#{@maisonmargaux.id}/employees")
+    expect(page).to have_content("Eli")
   end
 end

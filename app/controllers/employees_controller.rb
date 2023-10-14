@@ -7,5 +7,4 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   end
 
-
 end

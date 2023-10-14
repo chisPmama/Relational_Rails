@@ -28,6 +28,14 @@ RSpec.describe 'Employee' do
     expect(page).to have_content(@eli.hired_date)
     expect(page).to have_content("$0.00")
     expect(page).to have_content(@eli.salary)
-
   end
+
+  it 'has a link that returns back to the Employee Index' do
+    visit "/employees/#{@eli.id}"
+    expect(page).to have_content("Eli")
+    click_link "Back to Employee Index"
+    expect(current_path).to eq("/employees")
+    expect(page).to have_content("Employees")
+  end
+  
 end

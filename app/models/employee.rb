@@ -9,3 +9,4 @@ class Employee < ApplicationRecord
   validates :salary, inclusion: [true, false]
 
 end
+ 
