@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   get "/employees/:id", to: "employees#show"
   get "/restaurants/:restaurant_id/employees", to: "restaurant_employees#index"
   post "/restaurants", to: "restaurants#create"
-end
+  get "/restaurants/:id/edit", to: "restaurants#edit"
+  patch "/restaurants/:id", to: "restaurants#update"
+  
+
+
+ end

@@ -46,7 +46,6 @@ RSpec.describe "the Restaurant creation" do
 
     click_button "Create Restaurant"
     expect(current_path).to eq("/restaurants")
-    save_and_open_page
     expect(page).to have_content("Artisans and Spice")
   end
 end

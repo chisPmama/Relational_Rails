@@ -7,5 +7,6 @@
 <p>Max Employee Quantity: <%= @restaurant.max_employee_quantity %></p>
 <p>Opening Date: <%= @restaurant.opening_date %></p>
 <p>Employee Count: <%= @restaurant.employee_count %></p>
-
+<%= button_to "Edit #{@restaurant.name}", "/restaurants/#{@restaurant.id}/edit", method: :get %>
+<br>
 <%= link_to "Go to Employees List", "/restaurants/#{@restaurant.id}/employees"%>
