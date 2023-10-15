@@ -4,7 +4,7 @@ RSpec.describe "the restaurant edit from show page" do
   it "links to the edit page" do
     artisansspice = Restaurant.create!(name: "Artisans and Spice", location: "225 south 6th Street, Minneapolis MN, 55402", offers_insurance: true, max_employee_quantity: 4, opening_date: 20221208)
     visit "/restaurants/#{artisansspice.id}"
-    click_button "Edit Artisans and Spice"
+    click_link "Update Artisans and Spice"
 
     expect(current_path).to eq("/restaurants/#{artisansspice.id}/edit")
   end
@@ -13,7 +13,7 @@ RSpec.describe "the restaurant edit from show page" do
     artisansspice = Restaurant.create!(name: "Artisans and Spice", location: "225 south 6th Street, Minneapolis MN, 55402", offers_insurance: true, max_employee_quantity: 4, opening_date: 20221208)
     visit "/restaurants/#{artisansspice.id}"
     expect(page).to have_content("Artisans")
-    click_button "Edit Artisans and Spice"
+    click_link "Update Artisans and Spice"
     fill_in "Name", with: "Artisans & Spice"
     fill_in "Location", with: "225 south 6th Street, Minneapolis MN, 55402"
     fill_in "Offers insurance", with: true
@@ -26,5 +26,4 @@ RSpec.describe "the restaurant edit from show page" do
     expect(page).to have_content("&")
   end
 
-  ##Need to update the restaurant name and change button to a link
 end
