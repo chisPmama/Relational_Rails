@@ -15,4 +15,9 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.create(restaurant_params)
     redirect_to "/restaurants"
   end
+
+  def restaurant_params
+    params.permit(:name,:location,:offers_insurance,:max_employee_quantity,:opening_date)
+ end
+
 end

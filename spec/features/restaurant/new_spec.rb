@@ -25,7 +25,7 @@ RSpec.describe "the Restaurant creation" do
                                     max_employee_quantity: 5,
                                     opening_date: 20230624)
   end
-  
+
   it "links to the new page from the restaurants index" do
     visit "/restaurants"
 
@@ -33,33 +33,20 @@ RSpec.describe "the Restaurant creation" do
     expect(current_path).to eq("/restaurants/new")
   end
 
-  it "can create a new Restaurant" do
-    visit "/restaurants/new"
-    fill_in "Name", with: "Artisans and Spice"
-    fill_in "Location", with: "225 south 6th Street, Minneapolis MN, 55402"
-    fill_in "Offers Insurance", with: "true"
-    fill_in "Max Employee Quantity", with: "4"
-    fill_in "Opening Date", with: "20221208"
-
-    click_button "Create Restaurant"
-    expect(current_path).to eq("/restaurants")
-    expect(page).to have_content("Artisans and Spice")
-  end
-
  it 'contains a link that can create a new restaurant record' do
     visit "/restaurants"
-    save_and_open_page
     expect(page).to have_content("Restaurants")
     click_link "New Restaurant"
     expect(current_path).to eq("/restaurants/new")
     fill_in "Name", with: "Artisans and Spice"
     fill_in "Location", with: "225 south 6th Street, Minneapolis MN, 55402"
-    fill_in "Offers Insurance", with: "true"
-    fill_in "Max Employee Quantity", with: "4"
-    fill_in "Opening Date", with: "20221208"
+    fill_in "Offers insurance", with: "true"
+    fill_in "Max employee quantity", with: "4"
+    fill_in "Opening date", with: "20221208"
 
     click_button "Create Restaurant"
     expect(current_path).to eq("/restaurants")
+    save_and_open_page
     expect(page).to have_content("Artisans and Spice")
   end
 end
