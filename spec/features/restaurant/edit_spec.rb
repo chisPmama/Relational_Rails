@@ -25,4 +25,6 @@ RSpec.describe "the restaurant edit from show page" do
     expect(current_path).to eq("/restaurants/#{artisansspice.id}")
     expect(page).to have_content("&")
   end
+
+  ##Need to update the restaurant name and change button to a link
 end
