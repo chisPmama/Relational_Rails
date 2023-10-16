@@ -1,0 +1,21 @@
+<%= form_with url: "/employees/#{@employee.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br><br>
+  <%= form.label :position %>
+  <%= form.text_field :position %>
+  <br><br>
+   <%= form.label :hired_date %>
+  <%= form.text_field :hired_date %>
+  <br><br>
+   <%= form.label :hourly_wage %>
+  <%= form.text_field :hourly_wage %>
+  <br><br>
+   <%= form.label :active %>
+  <%= form.text_field :active %>
+<br><br>
+   <%= form.label :salary %>
+  <%= form.text_field :salary %>
+<br><br>
+  <%= form.submit "Update Employee" %>
+<% end %>

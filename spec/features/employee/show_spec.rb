@@ -18,6 +18,9 @@ RSpec.describe 'Employee' do
                                 offers_insurance: true,
                                 max_employee_quantity: 12,
                                 opening_date: 20180928)
+
+     @aldo = @fhimas.employees.create(name: "Aldo Hidalgo", position: "FOH General Manager", active: true, hired_date: "20180928", hourly_wage: 0, salary: true)
+
   end
 
   it 'can go to a specific employee page by id and return their attributes' do
@@ -36,6 +39,13 @@ RSpec.describe 'Employee' do
     click_link "Back to Employee Index"
     expect(current_path).to eq("/employees")
     expect(page).to have_content("Employees")
+  end
+
+  it 'has a link to update the employee information' do
+    visit "/employees/#{@bjorn.id}"
+    expect(page).to have_content("General Manager")
+    click_link "Update Employee"
+    expect(current_path).to eq("/employees/#{@bjorn.id}/edit")
   end
   
 end
