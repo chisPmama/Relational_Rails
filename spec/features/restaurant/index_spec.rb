@@ -47,20 +47,4 @@ RSpec.describe 'Restaurant' do
     expect(page).to have_content(@motherdough.created_at)
   end
 
-  # it 'contains a link that can create a new restaurant record' do
-  #   visit "/restaurants"
-  #   expect(page).to have_content("Restaurants")
-  #   click_link "New Restaurant"
-  #   expect(current_path).to eq("/restaurants/new")
-  #   fill_in "Name", with: "Artisans and Spice"
-  #   fill_in "Location", with: "225 south 6th Street, Minneapolis MN, 55402"
-  #   fill_in "Offers Insurance", with: "true"
-  #   fill_in "Max Employee Quantity", with: "4"
-  #   fill_in "Opening Date", with: "20221208"
-
-  #   click_button "Create Restaurant"
-  #   expect(current_path).to eq("/restaurants")
-  #   expect(page).to have_content("Artisans and Spice")
-  # end
-
 end

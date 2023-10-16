@@ -1,4 +1,5 @@
 <h1>Restaurant: <%= @restaurant.name %></h1>
+<%= link_to "Add a New Employee", "/restaurants/#{@restaurant.id}/employees/new" %>
 <h3>Employees List:</h1>
 <% @restaurant_employees.each do |e| %>
 <h4><%= e.id %>. <%= e.name %></h4>

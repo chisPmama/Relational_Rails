@@ -22,7 +22,6 @@ RSpec.describe 'Restaurant' do
 
   it 'shows all of the employees in the Employees table and returns their attributes' do
     visit "/employees"
-    # save_and_open_page
 
     expect(page).to have_content(@employees)
   end

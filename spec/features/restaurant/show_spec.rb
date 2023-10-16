@@ -67,10 +67,10 @@ RSpec.describe 'Restaurant' do
     expect(page).to have_content("Eli")
   end
 
-  it 'has a link that goes to edit the current restaurant' do
+  it 'has a button that goes to edit the current restaurant' do
     visit "/restaurants/#{@maisonmargaux.id}"
     expect(page).to have_content("Maison Margaux")
-    click_link "Update Maison Margaux"
+    click_button "Update Maison Margaux"
     expect(current_path).to eq("/restaurants/#{@maisonmargaux.id}/edit")
   end
 end

@@ -44,4 +44,11 @@ RSpec.describe 'Restaurant_Employees' do
     # save_and_open_page
     expect(page).to_not have_content(@aldo.name)
   end
+
+  it 'has a link to create a new employee' do
+    visit "/restaurants/#{@maisonmargaux.id}/employees"
+    click_link "Add a New Employee"
+    expect(current_path).to eq("/restaurants/#{@maisonmargaux.id}/employees/new")
+  end
+
 end

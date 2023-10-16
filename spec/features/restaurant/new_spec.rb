@@ -33,7 +33,7 @@ RSpec.describe "the Restaurant creation" do
     expect(current_path).to eq("/restaurants/new")
   end
 
- it 'contains a link that can create a new restaurant record' do
+ it 'can create a new restaurant record' do
     visit "/restaurants"
     expect(page).to have_content("Restaurants")
     click_link "New Restaurant"
