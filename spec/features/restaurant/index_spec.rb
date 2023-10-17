@@ -56,4 +56,14 @@ RSpec.describe 'Restaurant' do
     expect(current_path).to eq("/restaurants/#{@maisonmargaux.id}/edit")
   end
 
+  it 'has a link to delete a restaurant after each restaurant record' do
+    visit "/restaurants"
+    expect(page).to have_content("Delete Maison Margaux")
+    expect(page).to have_content("Delete Fhimas")
+    expect(page).to have_content("Delete Mother Dough")
+    click_link "Delete Mother Dough"
+    expect(current_path).to eq("/restaurants")
+    expect(page).to_not have_content("Mother Dough")
+  end
+
 end

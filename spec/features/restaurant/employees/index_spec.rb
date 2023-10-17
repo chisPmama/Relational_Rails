@@ -64,12 +64,21 @@ RSpec.describe 'Restaurant_Employees' do
   end
 
   it 'has a link after each employee with an option to edit' do
-    visit "/employees"
+    visit "/restaurants/#{@maisonmargaux.id}/employees"
     expect(page).to have_content("Edit Eli Fhima")
     expect(page).to have_content("Edit David Fhima")
     expect(page).to have_content("Edit Anthea Yur")
     click_link "Edit Anthea Yur"
     expect(current_path).to eq("/employees/#{@anthea.id}/edit")
+  end
+
+  xit 'has a form input that takes the wage of 16.00 and returns entries that make more than $16/hr' do
+    @unique = @maisonmargaux.employees.create(name: "Unique Divine", position: "BOH Chef", active: true, hired_date: "20230510", hourly_wage: 24.00, salary: false)
+    visit "/restaurants/#{@maisonmargaux.id}/employees"
+    fill_in "Wage filter", with: "16.00"
+    click_button "Submit"
+    expect(page).to have_content(@anthea.name)
+    expect(page).to have_content(@unique.name)
   end
 
 end

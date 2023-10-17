@@ -25,10 +25,15 @@ class Restaurant < ApplicationRecord
     employees.order("name ASC")
   end
 
+  # def filter(wage_filter)
+  #   binding.pry
+  #   employees.where("hourly_wage > ?", wage_filter)
+  # end
+
   def insured_employees
     insured_employees = salary_employees
     # insured_employees << self.employees.where("salary!=true").find_all{|employee| Date.today - employee.hired_date}
     ## how could you do the math for this? Research
   end
-  
+
 end

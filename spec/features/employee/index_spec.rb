@@ -42,4 +42,12 @@ RSpec.describe 'Restaurant' do
     click_link "Edit Anthea Yur"
     expect(current_path).to eq("/employees/#{@anthea.id}/edit")
   end
+
+  it 'has a link that can delete an employee from index' do
+    @frankie = @maisonmargaux.employees.create(name: "Frankie Stephenson", position: "FOH Server", active: true, hired_date: "20230624", hourly_wage: 14.50, salary: false)
+    visit "/employees"
+    click_link "Delete Frankie Stephenson"
+    expect(current_path).to eq("/employees")
+    expect(page).to_not have_content("Frankie")
+  end
 end
