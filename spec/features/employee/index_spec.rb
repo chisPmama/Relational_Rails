@@ -18,11 +18,20 @@ RSpec.describe 'Restaurant' do
                                 offers_insurance: true,
                                 max_employee_quantity: 12,
                                 opening_date: 20180928)
+
+    @abigail = @maisonmargaux.employees.create(name: "Abigail Landhuis", position: "FOH Server", active: false, hired_date: "20230515", hourly_wage: 14.50, salary: false)
+    @morgan = @maisonmargaux.employees.create(name: "Morgan Hawley", position: "BOH Spirits Director", active: false, hired_date: "20230515", hourly_wage: 0, salary: true)
+    @aldo = @fhimas.employees.create(name: "Aldo Hidalgo", position: "FOH General Manager", active: true, hired_date: "20180928", hourly_wage: 0, salary: true)
   end
 
   it 'shows all of the employees in the Employees table and returns their attributes' do
     visit "/employees"
-
     expect(page).to have_content(@employees)
+  end
+
+  it 'only returns the true records of active employees' do
+    visit '/employees'
+    save_and_open_page
+    expect(page).to_not have_content("Active: false")
   end
 end

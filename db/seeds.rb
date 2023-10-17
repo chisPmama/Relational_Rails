@@ -30,3 +30,5 @@
                             opening_date: 20230624)
 
 @aldo = @fhimas.employees.create(name: "Aldo Hidalgo", position: "FOH General Manager", active: true, hired_date: "20180928", hourly_wage: 0, salary: true)
+@abigail = @maisonmargaux.employees.create(name: "Abigail Landhuis", position "FOH Server", active: false, hired_date: "20230515", hourly_wage: 14.50, salary: false)
+@morgan = @maisonmargaux.employees.create(name: "Morgan Hawley", position "BOH Spirits Director", active: false, hired_date: "20230515", hourly_wage: 0, salary: true)
