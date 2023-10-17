@@ -6,5 +6,8 @@
 <p>When Hired: <%= e.hired_date%> </p>
 <p>Hourly Wage: <%= number_to_currency(e.hourly_wage, precision:2)%> </p>
 <p>Salary Employee: <%= e.salary%> </p>
+<p><%= link_to "Edit #{e.name}", "/employees/#{e.id}/edit" %></p>
+<p>-----------------------------------------------------</p>
+
 <% end %>
 <%= link_to "Add a New Employee", "/employees/new" %>

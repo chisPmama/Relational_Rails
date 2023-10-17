@@ -33,4 +33,13 @@ RSpec.describe 'Restaurant' do
     visit '/employees'
     expect(page).to_not have_content("Active: false")
   end
+
+  it 'has a link after each employee with an option to edit' do
+    visit "/employees"
+    expect(page).to have_content("Edit Eli Fhima")
+    expect(page).to have_content("Edit David Fhima")
+    expect(page).to have_content("Edit Anthea Yur")
+    click_link "Edit Anthea Yur"
+    expect(current_path).to eq("/employees/#{@anthea.id}/edit")
+  end
 end
