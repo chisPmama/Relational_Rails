@@ -10,15 +10,15 @@ class Restaurant < ApplicationRecord
   validates_presence_of :opening_date
 
   def employee_count
-    self.employees.count
+    employees.count
   end
 
   def salary_employees
-    self.employees.where("salary=true")
+    employees.where("salary=true")
   end
 
   def open_positions
-    self.max_employee_quantity - employee_count
+    max_employee_quantity - employee_count
   end
 
   def alphabetical

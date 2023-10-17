@@ -1,10 +1,7 @@
 <h1>Restaurant: <%= @restaurant.name %></h1>
 <%= link_to "Add a New Employee", "/restaurants/#{@restaurant.id}/employees/new" %>
 <br>
-<a href="/restaurants/<%= @restaurant.id %>/employees?sort=asc" class="link">
-Sort by Alphabetical Order
-</a>
-<%# <%= link_to "Sort by Alphabetical Order", "/restaurants/#{@restaurant.id}/employees" %> 
+<%= link_to "Sort by Alphabetical Order", :sort => "asc"%>
 <h3>Employees List:</h1>
 <% @restaurant_employees.each do |e| %>
 <h4><%= e.id %>. <%= e.name %></h4>
