@@ -1,7 +1,9 @@
 <h1>Restaurants</h1>
-<% @restaurants.each do |restaurant| %>
-  <h3><%= restaurant.name %></h3> 
+<% @restaurants.each do |restaurant| %> 
+  <h3><%= restaurant.name %></h3>
   <p>Created at: <%= restaurant.created_at%></p>
+  <p><%= link_to "Edit #{restaurant.name}", "/restaurants/#{restaurant.id}/edit" %></p>
+  <p>-----------------------------------------------------</p>
 <% end %>
 
 <%= link_to "New Restaurant", "/restaurants/new" %>

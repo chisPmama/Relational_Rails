@@ -14,10 +14,10 @@ RSpec.describe 'Restaurant' do
     @margo = @maisonmargaux.employees.create(name: "Margo Potts", position: "FOH Host", active: true, hired_date: "20230908", hourly_wage: 15.00, salary: false)
 
     @fhimas = Restaurant.create!(name: 'Fhimas', 
-                            location: '40 S 7th St, Minneapolis, MN 55402',
-                            offers_insurance: true,
-                            max_employee_quantity: 12,
-                            opening_date: 20180928)
+                                location: '40 S 7th St, Minneapolis, MN 55402',
+                                offers_insurance: true,
+                                max_employee_quantity: 12,
+                                opening_date: 20180928)
 
     @motherdough = Restaurant.create!(name: 'Mother Dough', 
                                     location: '1st floor fireside lounge, 225 South 6th St, Minneapolis, MN 55402',
@@ -45,6 +45,15 @@ RSpec.describe 'Restaurant' do
     expect(page).to have_content(@maisonmargaux.created_at)
     expect(page).to have_content(@fhimas.created_at)
     expect(page).to have_content(@motherdough.created_at)
+  end
+
+  it 'has a link after each restaurant with an option to edit' do
+    visit "/restaurants"
+    expect(page).to have_content("Edit Maison Margaux")
+    expect(page).to have_content("Edit Fhimas")
+    expect(page).to have_content("Edit Mother Dough")
+    click_link "Edit Maison Margaux"
+    expect(current_path).to eq("/restaurants/#{@maisonmargaux.id}/edit")
   end
 
 end
