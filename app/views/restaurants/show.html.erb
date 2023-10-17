@@ -8,5 +8,6 @@
 <p>Opening Date: <%= @restaurant.opening_date %></p>
 <p>Employee Count: <%= @restaurant.employee_count %></p>
 <%= button_to "Update #{@restaurant.name}", "/restaurants/#{@restaurant.id}/edit", method: :get %>
+<%= link_to "Delete #{@restaurant.name}", "/restaurants/#{@restaurant.id}", method: :delete %>
 <br>
 <%= link_to "Go to Employees List", "/restaurants/#{@restaurant.id}/employees"%>

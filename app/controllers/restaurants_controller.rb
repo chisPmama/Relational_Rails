@@ -16,21 +16,26 @@ class RestaurantsController < ApplicationController
     redirect_to "/restaurants"
   end
 
- def edit
-  @restaurant = Restaurant.find(params[:id])
- end
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
 
- def update
-  @restaurant = Restaurant.find(params[:id])
-  @restaurant.update(restaurant_params)
-  redirect_to "/restaurants/#{@restaurant.id}"
- end
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.update(restaurant_params)
+    redirect_to "/restaurants/#{@restaurant.id}"
+  end
 
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    redirect_to '/restaurants'
+  end
 
- private
- def restaurant_params
-  params.permit(:name,:location,:offers_insurance,:max_employee_quantity,:opening_date)
- end
+  private
+  def restaurant_params
+    params.permit(:name,:location,:offers_insurance,:max_employee_quantity,:opening_date)
+  end
 
 end
 

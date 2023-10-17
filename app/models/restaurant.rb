@@ -1,7 +1,7 @@
 require 'date'
 
 class Restaurant < ApplicationRecord
-  has_many :employees
+  has_many :employees, :dependent => :destroy
   
   validates_presence_of :name
   validates_presence_of :location 

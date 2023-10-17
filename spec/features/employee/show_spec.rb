@@ -47,5 +47,9 @@ RSpec.describe 'Employee' do
     click_link "Update Employee"
     expect(current_path).to eq("/employees/#{@bjorn.id}/edit")
   end
+
+  it 'has a link that can delete the current employee' do
+    
+  end
   
 end

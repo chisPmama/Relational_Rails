@@ -26,6 +26,7 @@ RSpec.describe 'Restaurant' do
                                     opening_date: 20230624)
         
     @aldo = @fhimas.employees.create(name: "Aldo Hidalgo", position: "FOH General Manager", active: true, hired_date: "20180928", hourly_wage: 0, salary: true)    
+    @frankie = @motherdough.employees.create(name: "Frankie Stephenson", position: "FOH Cashier", active: true, hired_date: "20230624", hourly_wage: 14.50, salary: false)
   end
 
   it 'can go to a restaurant page by id and return its attributes' do
@@ -47,7 +48,7 @@ RSpec.describe 'Restaurant' do
     expect(@fhimas.employees.count).to eq(1)
     visit "/restaurants/#{@motherdough.id}"
     expect(page).to have_content(@motherdough.employees.count)
-    expect(@motherdough.employees.count).to eq(0)
+    expect(@motherdough.employees.count).to eq(1)
   end
 
   it 'has a link that returns back to the Restaurant Index' do
@@ -76,6 +77,13 @@ RSpec.describe 'Restaurant' do
     expect(page).to have_content("Maison Margaux")
     click_button "Update Maison Margaux"
     expect(current_path).to eq("/restaurants/#{@maisonmargaux.id}/edit")
+  end
+
+  it 'has a link to delete a restaurant' do
+    visit "/restaurants/#{@motherdough.id}"
+    click_link "Delete Mother Dough"
+    expect(current_path).to eq("/restaurants")
+    expect(page).to_not have_content("Mother Dough")
   end
 
   # it 'test' do
