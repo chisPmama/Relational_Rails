@@ -59,6 +59,11 @@ RSpec.describe 'Restaurant' do
     expect(page).to have_content("Restaurant")
   end
 
+  it 'can return the number of employees per each restaurant' do
+    visit "/restaurants/#{@motherdough.id}"
+    expect(page).to have_content("Employee Count")
+  end
+
   it 'has a link that goes to the employees list of that restaurant' do
     visit "/restaurants/#{@maisonmargaux.id}"
     expect(page).to have_content("Maison Margaux")
@@ -73,4 +78,8 @@ RSpec.describe 'Restaurant' do
     click_button "Update Maison Margaux"
     expect(current_path).to eq("/restaurants/#{@maisonmargaux.id}/edit")
   end
+
+  # it 'test' do
+  #   @maisonmargaux.testwoh
+  # end
 end
