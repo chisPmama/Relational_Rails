@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-10-17T18:17:40-05:00">2023-10-17T18:17:40-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-10-17T18:26:49-05:00">2023-10-17T18:26:49-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  98.17%
+  98.18%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.79
+         1.81
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>493</b> relevant lines,
-    <span class="green"><b>484</b> lines covered</span> and
+    <b>494</b> relevant lines,
+    <span class="green"><b>485</b> lines covered</span> and
     <span class="red"><b>9</b> lines missed. </span>
     (<span class="green">
-  98.17%
+  98.18%
 </span>
 )
   </div>
@@ -96,10 +96,10 @@
             <td class="strong t-file__name"><a href="#14caf0f34081924a4158f20528ddd718c096d5e1" class="src_link" title="app/controllers/restaurant_employees_controller.rb">app/controllers/restaurant_employees_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">23</td>
-            <td class="cell--number">14</td>
-            <td class="cell--number">14</td>
+            <td class="cell--number">15</td>
+            <td class="cell--number">15</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">3.21</td>
+            <td class="cell--number">3.67</td>
             
           </tr>
         
@@ -304,7 +304,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ee43ae5983899edad48ac0978e891006f406818a" class="src_link" title="spec/features/restaurant/employees/index_spec.rb">spec/features/restaurant/employees/index_spec.rb</a></td>
             <td class="yellow strong cell--number t-file__coverage">88.89 %</td>
-            <td class="cell--number">84</td>
+            <td class="cell--number">85</td>
             <td class="cell--number">54</td>
             <td class="cell--number">48</td>
             <td class="cell--number">6</td>
@@ -845,8 +845,8 @@
     
 
     <div class="t-line-summary">
-      <b>14</b> relevant lines.
-      <span class="green"><b>14</b> lines covered</span> and
+      <b>15</b> relevant lines.
+      <span class="green"><b>15</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -902,13 +902,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="5">
-            
-            
-
+          <li class="covered" data-hits="10" data-linenumber="5">
+            <span class="hits">10</span>
             
 
-            <code class="ruby">    # return @restaurant_employees = @restaurant.filter(wage_filter) if params[:wage_filter]!= nil</code>
+            
+
+            <code class="ruby">    return @restaurant_employees = @restaurant.filter(wage_filter) if params[:wage_filter]!= nil</code>
           </li>
         </div>
       
@@ -7816,13 +7816,13 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="78">
+          <li class="never" data-hits="" data-linenumber="78">
             
             
 
             
 
-            <code class="ruby">    fill_in &quot;Wage filter&quot;, with: &quot;16.00&quot;</code>
+            <code class="ruby">    # save_and_open_page</code>
           </li>
         </div>
       
@@ -7833,7 +7833,7 @@
 
             
 
-            <code class="ruby">    click_button &quot;Submit&quot;</code>
+            <code class="ruby">    fill_in &quot;Wage filter&quot;, with: &quot;16.00&quot;</code>
           </li>
         </div>
       
@@ -7844,7 +7844,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(@anthea.name)</code>
+            <code class="ruby">    click_button &quot;Submit&quot;</code>
           </li>
         </div>
       
@@ -7855,18 +7855,18 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(@unique.name)</code>
+            <code class="ruby">    expect(page).to have_content(@anthea.name)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="82">
+          <li class="missed" data-hits="0" data-linenumber="82">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    expect(page).to have_content(@unique.name)</code>
           </li>
         </div>
       
@@ -7877,12 +7877,23 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="85">
             
             
 

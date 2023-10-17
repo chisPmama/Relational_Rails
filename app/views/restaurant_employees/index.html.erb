@@ -1,6 +1,6 @@
 <h1>Restaurant: <%= @restaurant.name %></h1>
 <%= form_tag("/restaurants/#{@restaurant.id}/employees", method: :get) do %>
-<%= label_tag("Filter by Wage") %>
+<%= label_tag("Wage filter") %>
 <%= text_field_tag(:wage_filter, params[:wage_filter]) %>
 <%= submit_tag("Submit") %>
 <% end %>

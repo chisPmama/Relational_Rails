@@ -75,6 +75,7 @@ RSpec.describe 'Restaurant_Employees' do
   xit 'has a form input that takes the wage of 16.00 and returns entries that make more than $16/hr' do
     @unique = @maisonmargaux.employees.create(name: "Unique Divine", position: "BOH Chef", active: true, hired_date: "20230510", hourly_wage: 24.00, salary: false)
     visit "/restaurants/#{@maisonmargaux.id}/employees"
+    # save_and_open_page
     fill_in "Wage filter", with: "16.00"
     click_button "Submit"
     expect(page).to have_content(@anthea.name)
