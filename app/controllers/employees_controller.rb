@@ -17,6 +17,12 @@ class EmployeesController < ApplicationController
     redirect_to "/employees/#{@employee.id}"
   end
 
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
+    redirect_to "/employees"
+  end
+
   private
   def employee_params
     params.permit(:name,:position,:active, :hired_date, :hourly_wage, :salary)

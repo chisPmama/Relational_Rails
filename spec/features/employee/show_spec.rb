@@ -20,7 +20,6 @@ RSpec.describe 'Employee' do
                                 opening_date: 20180928)
 
      @aldo = @fhimas.employees.create(name: "Aldo Hidalgo", position: "FOH General Manager", active: true, hired_date: "20180928", hourly_wage: 0, salary: true)
-
   end
 
   it 'can go to a specific employee page by id and return their attributes' do
@@ -49,7 +48,11 @@ RSpec.describe 'Employee' do
   end
 
   it 'has a link that can delete the current employee' do
-    
+    @frankie = @maisonmargaux.employees.create(name: "Frankie Stephenson", position: "FOH Server", active: true, hired_date: "20230624", hourly_wage: 14.50, salary: false)
+    visit "/employees/#{@frankie.id}"
+    click_link "Delete Employee"
+    expect(current_path).to eq("/employees")
+    expect(page).to_not have_content("Frankie")
   end
   
 end

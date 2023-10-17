@@ -86,7 +86,4 @@ RSpec.describe 'Restaurant' do
     expect(page).to_not have_content("Mother Dough")
   end
 
-  # it 'test' do
-  #   @maisonmargaux.testwoh
-  # end
 end
