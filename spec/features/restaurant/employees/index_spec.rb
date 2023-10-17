@@ -51,4 +51,17 @@ RSpec.describe 'Restaurant_Employees' do
     expect(current_path).to eq("/restaurants/#{@maisonmargaux.id}/employees/new")
   end
 
+  it "sorts the employees by alphabetical order of name" do
+    visit "/restaurants/#{@maisonmargaux.id}/employees"
+    expect(@eli.name).to appear_before(@david.name)
+    click_link "Sort by Alphabetical Order"
+    # expect(page).to eq("/restaurants/#{@maisonmargaux.id}/employees")
+    save_and_open_page
+
+    expect(@anthea.name).to appear_before(@bjorn.name)
+    expect(@bjorn.name).to appear_before(@david.name)
+    expect(@david.name).to appear_before(@eli.name)
+    expect(@eli.name).to appear_before(@margo.name)
+  end
+
 end

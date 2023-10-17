@@ -1,6 +1,7 @@
 class RestaurantEmployeesController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
+    return @restaurant_employees = @restaurant.alphabetical if params[:sort] == 'asc'
     @restaurant_employees = Restaurant.find(params[:restaurant_id]).employees
   end
 

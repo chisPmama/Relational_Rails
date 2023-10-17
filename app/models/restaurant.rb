@@ -12,13 +12,17 @@ class Restaurant < ApplicationRecord
   def employee_count
     self.employees.count
   end
- 
-  # def testwoh
-  #   binding.pry
-  # end
 
   def salary_employees
     self.employees.where("salary=true")
+  end
+
+  def open_positions
+    self.max_employee_quantity - employee_count
+  end
+
+  def alphabetical
+    employees.order("name ASC")
   end
 
   def insured_employees
@@ -26,16 +30,5 @@ class Restaurant < ApplicationRecord
     # insured_employees << self.employees.where("salary!=true").find_all{|employee| Date.today - employee.hired_date}
     ## how could you do the math for this? Research
   end
-
-  def open_positions
-    self.max_employee_quantity - employee_count
-  end
-
-  def FOH_employees
-    # self.employees.where("title contains 'FOH'")
-  end
-
-  # "playlists.created_at >= '2020-01-01'"
-
   
 end

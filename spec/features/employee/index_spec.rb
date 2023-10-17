@@ -31,7 +31,6 @@ RSpec.describe 'Restaurant' do
 
   it 'only returns the true records of active employees' do
     visit '/employees'
-    save_and_open_page
     expect(page).to_not have_content("Active: false")
   end
 end

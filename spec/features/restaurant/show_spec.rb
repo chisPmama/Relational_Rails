@@ -30,7 +30,6 @@ RSpec.describe 'Restaurant' do
 
   it 'can go to a restaurant page by id and return its attributes' do
     visit "/restaurants/#{@maisonmargaux.id}"
-    # save_and_open_page
 
     expect(page).to have_content(@maisonmargaux.name)
     expect(page).to have_content(@maisonmargaux.location)
