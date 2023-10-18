@@ -10,7 +10,7 @@
 <%= link_to "Sort by Alphabetical Order", :sort => "asc"%>
 <h3>Employees List:</h1>
 <% @restaurant_employees.each do |e| %>
-<h4><%= e.id %>. <%= e.name %></h4>
+<h4><%= link_to "#{e.id}. #{e.name} ", "/employees/#{e.id}" %></h4>
 <p>Position: <%= e.position%> </p>
 <p>Active: <%= e.active%> </p>
 <p>When Hired: <%= e.hired_date%> </p>
