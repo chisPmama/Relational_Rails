@@ -7,7 +7,7 @@
 <p>Hourly Wage: <%= number_to_currency(e.hourly_wage, precision:2)%> </p>
 <p>Salary Employee: <%= e.salary%> </p>
 <p><%= link_to "Edit #{e.name}", "/employees/#{e.id}/edit" %></p>
-<%= link_to "Delete #{e.name}", "/employees/#{e.id}", method: :delete %>
+<%= link_to "Delete #{e.name}", "/employees/#{e.id}", data: { turbo_method: :delete } %>
 
 <p>-----------------------------------------------------</p>
 

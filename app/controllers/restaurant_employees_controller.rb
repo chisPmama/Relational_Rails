@@ -3,7 +3,7 @@ class RestaurantEmployeesController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     return @restaurant_employees = @restaurant.alphabetical if params[:sort] == 'asc'
     # return @restaurant_employees = @restaurant.filter(wage_filter) if params[:wage_filter]!= nil
-    @restaurant_employees = Restaurant.find(params[:restaurant_id]).employees
+    @restaurant_employees = @restaurant.employees
   end
 
   def new

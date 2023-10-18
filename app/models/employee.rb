@@ -8,5 +8,8 @@ class Employee < ApplicationRecord
   validates_presence_of :hourly_wage
   validates :salary, inclusion: [true, false]
 
+  def self.all_active
+    where(active: :true)
+  end
 end
  

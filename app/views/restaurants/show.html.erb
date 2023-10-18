@@ -9,6 +9,6 @@
 <p>Employee Count: <%= @restaurant.employee_count %></p>
 <br>
 <%= button_to "Update #{@restaurant.name}", "/restaurants/#{@restaurant.id}/edit", method: :get %><br>
-<%= link_to "Delete #{@restaurant.name}", "/restaurants/#{@restaurant.id}", method: :delete %>
+<%= link_to "Delete #{@restaurant.name}", "/restaurants/#{@restaurant.id}", data: { turbo_method: :delete } %>
 <br><br>
 <%= link_to "Go to Employees List", "/restaurants/#{@restaurant.id}/employees"%>
